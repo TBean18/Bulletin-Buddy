@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 
 function Landing() {
 	return (
@@ -26,6 +27,7 @@ function Landing() {
 						<div className="lg:grid lg:grid-cols-2 lg:gap-8  ">
 							<div className="row-start-1 col-start-1 ">
 								{/* Students Link */}
+                                <Link to="/student/reg">
 								<svg
 									className="w-72 h-72 transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
 									viewBox="0 0 280 228"
@@ -72,8 +74,10 @@ function Landing() {
 										</clipPath>
 									</defs>
 								</svg>
-							</div>
+                                </Link>
+                            </div>
 							<div className="row-start-1 col-start-2 ">
+                                <Link to="/organization/reg">
 								{/* Organization Link */}
 								<svg
 									className="w-72 h-72 transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
@@ -120,8 +124,9 @@ function Landing() {
 											<rect width="280" height="228" fill="white" />
 										</clipPath>
 									</defs>
-								</svg>
-							</div>
+								</svg>                               
+                                </Link>
+                            </div>
 						</div>
 						<div className="row-start-2 flex items-center justify-center">
 							{/* About Link */}
