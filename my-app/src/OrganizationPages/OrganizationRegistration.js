@@ -75,7 +75,7 @@ function OrganizationReg() {
 			<div className="w-screen h-screen flex items-center content-center justify-center">
 				<div
 					id="step-1"
-					className="w-auto mt-64 lg:w-2/6 m-36 bg-white max-h- rounded-lg h-auto min-h-3/6 p-10 flex flex-col items-center text-center justify-center gap-4"
+					className="w-auto mt-48 lg:w-2/6 m-36 bg-white max-h- rounded-lg h-auto min-h-3/6 p-10 flex flex-col items-center text-center justify-center gap-4"
 				>
 					<svg
 						width="186"
