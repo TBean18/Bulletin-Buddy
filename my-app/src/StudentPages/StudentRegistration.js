@@ -17,7 +17,7 @@ function StudentReg() {
 			<div className="absolute w-full mb-6 top-0 pt-5 px-10 font-black text-3xl  text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-600  to-yellow-500">
 				{" "}
 				<svg
-					className="lg:h-14 h-10"
+					className="lg:h-14 h-8"
 					viewBox="0 0 377 55"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
