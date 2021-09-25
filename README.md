@@ -29,4 +29,5 @@
 ## Names
 
     - MeetingBuddy
-    -
+    - BulletinBuddy
+    - Rendevouz
