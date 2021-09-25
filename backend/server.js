@@ -27,7 +27,7 @@ mongoose
     autoIndex: true,
   })
   .then(() => {
-    console.log("MongoDB Connected!! Yay 😍🤳🐱‍👤");
+    console.log("MongoDB Connected!! Yay 😍🤳🏌️‍♂️");
   })
   .catch((err) => {
     console.log(err);
