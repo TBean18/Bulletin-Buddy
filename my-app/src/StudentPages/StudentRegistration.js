@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, withRouter } from "react-router-dom";
 
 function StudentReg() {
 	const [isFirstStep, setisFirstStep] = useState(true);
@@ -16,6 +17,7 @@ function StudentReg() {
 			{/*lOGO*/}
 			<div className="absolute w-full mb-6 top-0 pt-5 px-10 font-black text-3xl  text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-600  to-yellow-500">
 				{" "}
+                <Link to="/">
 				<svg
 					className="lg:h-14 h-8"
 					viewBox="0 0 377 55"
@@ -65,7 +67,8 @@ function StudentReg() {
 						</linearGradient>
 					</defs>
 				</svg>
-			</div>
+                </Link>
+            </div>
 			<div className="w-screen h-screen flex items-center content-center justify-center">
 				<div
 					id="step-1"
