@@ -97,7 +97,7 @@ function StudentReg() {
 						Register for an account with your phone number.{" "}
 					</text>
 					{/* From TailwindCSS Samples */}
-					<div class="flex items-center justify-center mb-6 flex-wrap">
+					<div className="flex items-center justify-center mb-6 flex-wrap">
 						<div className="w-auto">
 							<input
 								className="bg-gray-200 mt-4 text-center appearance-none border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-fuchsia-600"
@@ -140,7 +140,7 @@ function StudentReg() {
 					<div className="flex items-center content-center justify-center"></div>
 					<text className="text-2xl"> Please verify your phone number. </text>
 					{/* From TailwindCSS Samples */}
-					<div class=" md:flex md:items-center mb-6">
+					<div className=" md:flex md:items-center mb-6">
 						<div className="md:w-2/3">
 							<input
 								className="bg-gray-200 appearance-none border-2 border-gray-200 rounded mt-4 py-2 px-4 text-gray-700 w-64 leading-tight focus:outline-none focus:bg-white focus:border-fuchsia-600"

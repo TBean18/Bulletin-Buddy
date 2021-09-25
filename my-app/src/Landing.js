@@ -7,11 +7,11 @@ function Landing() {
 			<div className="lg:h-screen w-full  text-center lg:text-9xl text-7xl mx-auto items-center justify-center content-center">
 				<div className="flex lg:h-screen  lg:mt-0 mt-24 flex-col items-center justify-center gap-8 lg:px-40 px-18">
 					<div>
-						<text class="font-black text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-600 via-pink-500 to-yellow-500">
+						<text className="font-black text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-600 via-pink-500 to-yellow-500">
 							Bulletin
 						</text>
 						<br />
-						<text class="font-black text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-600 via-pink-500 to-yellow-500">
+						<text className="font-black text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-600 via-pink-500 to-yellow-500">
 							Buddy
 						</text>
 					</div>
