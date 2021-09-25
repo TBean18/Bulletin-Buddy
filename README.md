@@ -15,16 +15,21 @@
 
     - Only Admins can make posts
     - Custom Tags
-    - Post can be fortmatted / written in Markdown
+    - Post can be formatted / written in Markdown
     -
 
 ## Tags
 
     - STEM
+    - Computer Science
     - Lifestyle
     - Fitness
     - Gaming
     - Networking \
+    - Food
+    - Social
+    - Business
+    - Other
 
 ## Names
 
