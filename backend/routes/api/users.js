@@ -57,7 +57,7 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  user.findOne({ email: req.body.email }).then((foundUser) => {
+  User.findOne({ email: req.body.email }).then((foundUser) => {
     foundUser.comparePassword(req.body.password, (err, isMatch) => {
       if (err)
         return res.status(404).json({
@@ -75,6 +75,22 @@ router.post("/login", (req, res) => {
         });
       }
     });
+  });
+});
+
+router.post("/deleteUser", jwt.authenticateUser, (req, res) => {
+  const uid = req.body.user_ID;
+  User.findByIdAndDelete(uid, (err, doc) => {
+    if (err) {
+      console.log(err);
+      res.status(404).json();
+    } else {
+      console.log("Deleted: ", doc);
+      res.json({
+        doc,
+        error: "",
+      });
+    }
   });
 });
 
