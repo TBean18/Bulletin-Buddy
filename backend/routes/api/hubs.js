@@ -8,6 +8,7 @@ const User = user.model;
 const hub = require("../../models/Hub");
 const Hub = hub.model;
 const posting = require("../../models/Posting");
+const Posting = posting.model;
 
 // Route: GET api/hubs/
 // Description: Return the hub info including the board_list[] for a given user's School
@@ -52,6 +53,36 @@ router.post("/create", jwt.authenticateUser, (req, res) => {
     });
 });
 
-// TODO Add a Post
+// Route api/hubs/newPost
+// Description: Creates a new post and adds it to the hubs post list
+router.post("/newPost", jwt.authenticateUser, (req, res) => {
+  const uid = req.body.user_ID;
+
+  // Create new post
+  const newPosting = new Posting({
+    author: uid,
+    ...req.body.post,
+  });
+
+  // find the hub
+  Hub.find({
+    school: req.body.school,
+  }).then((item) => {
+    // Add the new post to the group
+    item.addPost(newPosting, (err) => {
+      if (err) {
+        console.log(err);
+        res.status(404).json({
+          error: "Unable to post at this time",
+        });
+      }
+
+      res.json({
+        post: item,
+        error: "",
+      });
+    });
+  });
+});
 
 module.exports = router;
