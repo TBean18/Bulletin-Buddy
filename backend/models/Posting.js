@@ -18,6 +18,19 @@ const PostingSchema = new Schema({
     type: String,
     required: true,
   },
+  image_address: {
+    type: String,
+  },
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+    required: true,
+  },
+  tags: {
+    type: [String],
+    required: true,
+    default: [],
+  },
 });
 
 const model = mongoose.model("posting", PostingSchema);

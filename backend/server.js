@@ -7,6 +7,7 @@ const path = require("path");
 // API Routers
 const userRouter = require("./routes/api/users");
 const hubRouter = require("./routes/api/hubs");
+const postsRouter = require("./routes/api/posts");
 
 require("dotenv").config();
 
@@ -35,6 +36,7 @@ mongoose
 
 app.use("/api/user", userRouter);
 app.use("/api/hubs", hubRouter);
+app.use("/api/posts", postsRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("../my-app/build"));
