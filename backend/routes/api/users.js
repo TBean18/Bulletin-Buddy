@@ -94,4 +94,25 @@ router.post("/deleteUser", jwt.authenticateUser, (req, res) => {
   });
 });
 
+router.post("/registerInterest", jwt.authenticateUser, (req, res) => {
+  const uid = req.body.user_ID;
+
+  User.findById(uid).then((foundUser) => {
+    foundUser.interests = req.body.interests;
+    foundUser
+      .save()
+      .then((item) => {
+        res.json({
+          user: item,
+          error: "",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(404).json({
+          error: "Unable to register Interests at this time",
+        });
+      });
+  });
+});
 module.exports = router;
