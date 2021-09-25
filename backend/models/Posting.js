@@ -33,5 +33,30 @@ const PostingSchema = new Schema({
   },
 });
 
+PostingSchema.methods.editPost = function (newPost, cb) {
+  if (newPost.tags) {
+    this.tags = newPost.tags;
+  }
+  if (newPost.image_address) {
+    this.image_address = newPost.image_address;
+  }
+  if (newPost.location) {
+    this.location = newPost.location;
+  }
+  if (newPost.date) {
+    this.date = newPost.date;
+  }
+  if (newPost.description) {
+    this.description = newPost.description;
+  }
+  if (newPost.title) {
+    this.title = newPost.title;
+  }
+
+  this.save()
+    .then((item) => cb(null, item))
+    .catch((err) => cb(err));
+};
+
 const model = mongoose.model("posting", PostingSchema);
 module.exports = { model, PostingSchema };

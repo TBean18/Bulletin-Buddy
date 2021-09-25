@@ -36,4 +36,31 @@ router.get("/", jwt.authenticateUser, (req, res) => {
   });
 });
 
+router.post("/edit", jwt.authenticateUser, (req, res) => {
+  const uid = req.body.user_ID;
+  const pid = req.body.post_ID;
+  const gid = req.body.group_ID;
+
+  Hub.findById(gid).then((g) => {
+    const post = g.post_list.id(pid);
+    if (post.author !== uid) {
+      res.status(404).json({
+        error:
+          "You are not authorized to edit this post. You can only edit posts you've created",
+      });
+    }
+    p.editPost(req.body.newPost, (err, item) => {
+      if (err) {
+        console.log(err);
+        res.status(404).json({
+          error: "Post edit can not be completed",
+        });
+      }
+      res.json({
+        newPost,
+        error: "",
+      });
+    });
+  });
+});
 module.exports = router;
