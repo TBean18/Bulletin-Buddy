@@ -12,10 +12,11 @@ const OrganizationSchema = new Schema({
   },
   notified_members: {
     type: [Schema.Types.ObjectID],
+    ref: "user",
     required: true,
     default: [],
   },
 });
 
 const model = mongoose.model("organization", OrganizationSchema);
-module.exports = { model, PostingSchema: OrganizationSchema };
+module.exports = { model, OrganizationSchema };
