@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function Landing() {
 	return (
@@ -25,7 +25,7 @@ function Landing() {
 					<div className="lg:grid lg:grid-rows-2 flex flex-col flex-wrap gap-8 items-center justify-center">
 						<div className="lg:grid lg:grid-cols-2 lg:gap-8  ">
 							<div className="row-start-1 col-start-1 ">
-               {/* Students Link */}
+								{/* Students Link */}
 								<svg
 									className="w-72 h-72 transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
 									viewBox="0 0 280 228"
@@ -74,7 +74,7 @@ function Landing() {
 								</svg>
 							</div>
 							<div className="row-start-1 col-start-2 ">
-                {/* Organization Link */}
+								{/* Organization Link */}
 								<svg
 									className="w-72 h-72 transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
 									viewBox="0 0 280 228"
@@ -124,7 +124,7 @@ function Landing() {
 							</div>
 						</div>
 						<div className="row-start-2 flex items-center justify-center">
-              {/* About Link */}
+							{/* About Link */}
 							<svg
 								className="w-72 h-72 transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
 								viewBox="0 0 279 228"
