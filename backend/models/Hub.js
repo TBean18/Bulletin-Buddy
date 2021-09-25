@@ -12,6 +12,11 @@ const HubSchema = new Schema({
     required: true,
     default: [],
   },
+  school: {
+    type: String,
+    unique: true,
+    required: true,
+  },
 });
 
 const model = mongoose.model("hub", HubSchema);
