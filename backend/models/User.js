@@ -20,6 +20,11 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  school: {
+    type: String,
+    required: true,
+    // What about schools that dont exist.
+  },
 });
 
 const model = mongoose.model("user", UserSchema);
