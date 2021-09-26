@@ -36,14 +36,16 @@ HubSchema.methods.getPostsByTagFilter = function (filters, cb) {
   //   res: [
   //     {
   //       tag:
-  //       posts:
+  //       posts: []
   //     }
   //   ],
   // };
 
   let res = [];
   filters.forEach((val) => {
-    let curResElement = this.post.filter((post) => post.tags.includes(val));
+    let curResElement = this.post_list.filter((post) =>
+      post.tags.includes(val)
+    );
     res.push({
       tag: val,
       posts: curResElement,

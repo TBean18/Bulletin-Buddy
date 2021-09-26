@@ -18,7 +18,7 @@ router.get("/", jwt.authenticateUser, (req, res) => {
   User.findById(uid).then((u) => {
     const filters = u.interests;
 
-    Hub.find({ school: u.school }).then((h) => {
+    Hub.findOne({ school: u.school }).then((h) => {
       h.getPostsByTagFilter(filters, (err, result) => {
         if (err) {
           console.log(err);
