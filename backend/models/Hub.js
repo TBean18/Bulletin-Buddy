@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const posting = require("./Posting");
 
 const HubSchema = new Schema({
   name: {
     type: String,
     required: true,
   },
-  board_list: {
-    type: [Schema.Types.ObjectID],
-    ref: "board",
+  post_list: {
+    type: [posting.PostingSchema],
     required: true,
     default: [],
   },
@@ -16,8 +16,40 @@ const HubSchema = new Schema({
     type: String,
     unique: true,
     required: true,
+    index: true,
   },
 });
+
+// cb expects (err, res)
+HubSchema.methods.addPost = function (post, cb) {
+  this.post_list.push(post);
+  this.save()
+    .then(() => {
+      cb(null, true);
+    })
+    .catch((err) => cb(err));
+};
+
+HubSchema.methods.getPostsByTagFilter = function (filters, cb) {
+  // let result = {
+  //   res: [
+  //     {
+  //       tag:
+  //       posts:
+  //     }
+  //   ],
+  // };
+
+  let res = [];
+  filters.forEach((val) => {
+    let curResElement = this.post.filter((post) => post.tags.includes(val));
+    res.push({
+      tag: val,
+      posts: curResElement,
+    });
+  });
+  return cb(null, res);
+};
 
 const model = mongoose.model("hub", HubSchema);
 module.exports = { model, HubSchema };
