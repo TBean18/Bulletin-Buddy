@@ -274,7 +274,7 @@ const HubPage = () => {
         toDisplay={toDisplay}
       />
 
-      <div className="flex flex-row flex-nowrap items-center justify-start mx-12 my-8 gap-x-4 max-w-screen overflow-x-auto p-12">
+      <div className="flex flex-row flex-nowrap items-center justify-start mx-12 my-8 gap-x-4 overflow-x-auto p-12">
         {query.isSuccess &&
           query.data.postsByInterests.map((data) => (
             <div className="flex flex-col items-center gap-4 justify-center">
