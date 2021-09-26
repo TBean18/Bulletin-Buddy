@@ -275,7 +275,7 @@ const HubPage = () => {
       <div className="flex flex-row flex-nowrap items-start justify-start mx-12 my-8 gap-x-4 overflow-x-auto p-12">
         {query.isSuccess &&
           query.data.postsByInterests.map((data) => (
-            <div className="flex flex-col items-center gap-4 justify-center">
+            <div className="flex flex-col items-center gap-2 justify-center">
               <div className="flex flex-row items-center justify-center gap-2 ">
                 {console.log(data)}
                 <svg
@@ -295,7 +295,7 @@ const HubPage = () => {
               </div>
               {data.posts.map((post) => (
                 <div
-                  className="shadow-lg group container max-w-sm flex justify-center items-center  mx-auto  content-div w-52 h-autorounded-xl hover:opacity-30 rounded-xl"
+                  className="shadow-lg group container max-w-sm flex justify-center items-center  mx-auto  content-div w-52 h-autorounded-xl hover:opacity-30 rounded-xl gap-0"
                   style={post.styles}
                   onClick={() => {
                     console.log(post);
