@@ -20,6 +20,7 @@ const PostingSchema = new Schema({
   },
   image_address: {
     type: String,
+    validate: [imageLinkValidation, "Image Link Not Detected"],
   },
   author: {
     type: Schema.Types.ObjectId,
@@ -32,6 +33,10 @@ const PostingSchema = new Schema({
     default: [],
   },
 });
+
+function imageLinkValidation(url) {
+  return /(jpeg|jpg|gif|png)/.test(url);
+}
 
 PostingSchema.methods.editPost = function (newPost, cb) {
   if (newPost.tags) {
