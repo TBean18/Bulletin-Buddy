@@ -117,7 +117,7 @@ const PostCard = () => {
                 <div className="sm:flex sm:items-start">
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <h3  className="text-4xl text-center mt-8 leading-6 font-black text-gray-900">
-                      Title
+                      {title}
                       </h3>
                    
                     <div className="mt-2">
@@ -126,12 +126,12 @@ const PostCard = () => {
                             <button id="interest" className="rounded-xl h-5 p-4">
                                
                             </button>
-                          <div> <text className="font-bold text-lg"> Date : </text>September 25, 2021</div>
-                          <div> <text className="font-bold text-lg">Location : </text> Orlando,FL</div>
+                          <div> <text className="font-bold text-lg"> Date : </text> {date}</div>
+                          <div> <text className="font-bold text-lg">Location : </text> {location}</div>
                           <br/>
-                      <img className="h-auto w-full" src="https://previews.customer.envatousercontent.com/files/308521832/Final%20Presentation%20single.jpg"/>
+                      <img className="h-auto w-full" src={image_address}/>
                       <br/>
-                      <div> <text className="font-bold text-lg"> Description : </text> Hi tell some information about the organizatino here. Clubs are fun etc etc.</div>
+                      <div> <text className="font-bold text-lg"> Description : </text> {description}</div>
                           </div>
                       
                       </p>
