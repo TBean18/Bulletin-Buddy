@@ -1,9 +1,14 @@
-
+.content-div {
+  background-image: url("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/kids-sports-club-flyer-template-design-76d8f54da3d628f583379f64f0ff3619_screen.jpg?ts=1566583843");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 .content-div:hover {
   background-image: linear-gradient(
       to right,
       rgba(236, 72, 153, 1),
-      hsla(232, 84%, 61%, 0.801)
+      hsla(232, 64%, 43%, 0.801)
     ),
     url("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/kids-sports-club-flyer-template-design-76d8f54da3d628f583379f64f0ff3619_screen.jpg?ts=1566583843");
 }
