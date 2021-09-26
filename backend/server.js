@@ -11,7 +11,7 @@ const postsRouter = require("./routes/api/posts");
 
 require("dotenv").config();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // MongoDB URI
 const URL = process.env.MONGO_URL;

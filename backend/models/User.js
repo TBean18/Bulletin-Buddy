@@ -7,6 +7,10 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  display_name: {
+    type: String,
+    required: false,
+  },
   interests: {
     type: [String],
     required: true,

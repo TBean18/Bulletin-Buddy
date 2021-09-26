@@ -3,9 +3,10 @@ const Schema = mongoose.Schema;
 const posting = require("./Posting");
 
 const HubSchema = new Schema({
+  // TODO remove name property
   name: {
     type: String,
-    required: true,
+    required: false,
   },
   post_list: {
     type: [posting.PostingSchema],
