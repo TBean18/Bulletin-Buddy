@@ -47,6 +47,7 @@ router.post("/register", (req, res) => {
       let token = jwt.createToken({
         user_ID: item._id,
       });
+      if (token.error !== "") throw token.error;
 
       // Check to see if the newly registered user's school has a HUB
       Hub.countDocuments({ school: userData.school }, (err, count) => {
@@ -77,8 +78,6 @@ router.post("/register", (req, res) => {
             });
         }
       });
-
-      if (token.error !== "") throw token.error;
     })
     .catch((err) => {
       console.log(err);

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalState";
 
 function OrganizationReg() {
   const [chosenTags, setTags] = useState([]);
@@ -21,6 +22,9 @@ function OrganizationReg() {
     email: "",
     school: "",
   });
+
+  const [errorMsg, setErrorMsg] = useState("");
+  const { storeJWT, jwt } = useContext(GlobalContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,7 +67,7 @@ function OrganizationReg() {
       "Food",
       "Other",
     ];
-    let tagList = tags.map((tag, index) => {
+    return tags.map((tag, index) => {
       let selectedOn =
         "text-xs rounded-lg bg-red-100 border-pink-500 border hover:bg-red-50 px-4 py-1 text-dark-blueGray";
       let selectedOff =
@@ -81,8 +85,6 @@ function OrganizationReg() {
         </text>
       );
     });
-
-    return tagList;
   };
 
   const register = async () => {
@@ -90,7 +92,7 @@ function OrganizationReg() {
     console.log(payload);
     let url = "http://localhost:3001/api/user/register";
 
-    const response = await fetch(url, {
+    let response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -98,11 +100,20 @@ function OrganizationReg() {
       },
       body: payload,
     });
-    if (response.body.error !== "") {
-      console.log("Something went wrong");
+    let res = await response.json();
+    if (res.error !== "") {
+      console.log(res);
+      console.log(`Something went wrong \n error: ${res.error}`);
+      setErrorMsg(res.error);
     } else {
       console.log("hooray!");
+      // Store the jwt inside of memory
+      console.log(`res.token: ${res.token}`);
+      storeJWT(res.token);
+      console.log(jwt);
     }
+
+    // TODO Reroute to registration Page
   };
 
   const inputStyle =
