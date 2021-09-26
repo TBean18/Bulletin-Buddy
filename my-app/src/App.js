@@ -10,8 +10,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
 	return (
 		<div>
-			<HubPage/>
-			{/* <Router>
+			
+			<Router>
 				<Switch>
 					<Route path="/" exact component={() => <Landing />} />
 					<Route path="/student/reg" exact component={() => <StudentReg />} />
@@ -23,10 +23,10 @@ function App() {
 					<Route 
 						path="/hub" 
 						exact 
-						component={() => <Hub />}
+						component={() => <HubPage/>}
 					/>
 				</Switch>
-			</Router> */}
+			</Router> 
 		</div>
 	);
 }

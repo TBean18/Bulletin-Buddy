@@ -29,7 +29,7 @@ function Landing() {
 								{/* Students Link */}
                                 <Link to="/student/reg">
 								<svg
-									className="w-72 h-72 transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
+									className="w-full h-full transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
 									viewBox="0 0 280 228"
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ function Landing() {
                                 <Link to="/organization/reg">
 								{/* Organization Link */}
 								<svg
-									className="w-72 h-72 transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
+									className="w-full h-full transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
 									viewBox="0 0 280 228"
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,7 @@ function Landing() {
 						<div className="row-start-2 flex items-center justify-center">
 							{/* About Link */}
 							<svg
-								className="w-72 h-72 transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
+								className="w-1/2 h-1/2 transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-500"
 								viewBox="0 0 279 228"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
