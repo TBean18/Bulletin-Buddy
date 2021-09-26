@@ -100,6 +100,7 @@ router.post("/login", (req, res) => {
       if (isMatch) {
         res.json({
           user: foundUser,
+          token: jwt.createToken({ user_ID: foundUser._id }).accessToken,
           error: "",
         });
       }

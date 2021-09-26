@@ -33,9 +33,10 @@ export const GlobalProvider = function (props) {
 
   //Login function used to store userData in global state
   function logIn(userObject, webToken) {
-    if (userObject == undefined) return;
+    if (userObject === undefined) return;
     setUser(userObject);
     localStorage.setItem("user", JSON.stringify(userObject));
+    localStorage.setItem("school", JSON.stringify(userObject.school));
     storeJWT(webToken);
 
     //Gather the group info from

@@ -57,30 +57,39 @@ router.post("/create", jwt.authenticateUser, (req, res) => {
 // Description: Creates a new post and adds it to the hubs post list
 router.post("/newPost", jwt.authenticateUser, (req, res) => {
   const uid = req.body.user_ID;
+  const body = req.body;
+
+  const postData = {
+    title: body.title,
+    description: body.description,
+    location: body.location,
+    date: body.date,
+    image_address: body.image_address,
+    tags: body.tags,
+    author: uid,
+  };
 
   // Create new post
-  const newPosting = new Posting({
-    author: uid,
-    ...req.body.post,
-  });
+  const newPosting = new Posting(postData);
 
   // find the hub
-  Hub.find({
+  Hub.findOne({
     school: req.body.school,
   }).then((item) => {
+    if (!item) return console.log("Item Does Not Exist!! ");
     // Add the new post to the group
     item.addPost(newPosting, (err) => {
       if (err) {
         console.log(err);
-        res.status(404).json({
+        return res.status(404).json({
           error: "Unable to post at this time",
         });
+      } else {
+        res.json({
+          post: item,
+          error: "",
+        });
       }
-
-      res.json({
-        post: item,
-        error: "",
-      });
     });
   });
 });
