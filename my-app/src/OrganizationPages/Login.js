@@ -158,13 +158,13 @@ function Login() {
               {" "}
               Login{" "}
             </button>
-            <Link to="./registration">
-              <button className="ml-4 mt-4 rounded h-full py-2 px-4 text-white font-bold  bg-fuchsia-600 hover:bg-fuchsia-500  focus:outline-none focus:ring-2 focus:bg-fuchsia-500  focus:ring-opacity-50">
-                {" "}
-                Register{" "}
-              </button>
-            </Link>
+           
           </div>
+          <Link to="./registration">
+              <text className=" duration-100 text-gray-400 transform hover:text-gray-700">
+              Need an Account? Sign up!
+              </text>
+            </Link>
         </div>
         <div id="step-2" className="hidden">
           <svg
