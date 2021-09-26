@@ -8,12 +8,12 @@ export default function Navbar({ fixed }) {
 		<>
 			<nav className="relative flex flex-wrap items-center justify-between px-2 py-3 mb-3">
 				<div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-					<div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+					<div className="w-full grid grid-cols-12 justify-between lg:w-auto lg:static lg:block lg:justify-start">
 						<a
 							className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
 							href="#pablo"
 						>
-							<div className="absolute w-full mb-8 top-0 pt-5 px-10 font-black text-3xl  text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-600  to-yellow-500">
+							<div className="w-auto mb-8 top-0 pt-5 grid-span-10 px-10 font-black text-3xl  text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-600  to-yellow-500">
 								{" "}
 								<Link to="/" className="margin">
 									<svg
@@ -82,7 +82,7 @@ export default function Navbar({ fixed }) {
 							<li className="nav-item">
 							<Link to="./newpost">
 								<button
-									className="rounded-xl h-auto text-red-900 bg-yellow-400 hover:bg-yellow-300 p-0.5 text-center text-2xl w-auto font-black"
+									className="rounded-xl h-auto text-yellow-900 bg-yellow-500 hover:bg-yellow-400 px-3 py-2 text-center text-2xl w-auto font-black"
 								>
 
 									New Post
