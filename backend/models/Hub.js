@@ -51,6 +51,12 @@ HubSchema.methods.getPostsByTagFilter = function (filters, cb) {
       posts: curResElement,
     });
   });
+
+  // Sort Array by size
+  res.sort((a, b) => {
+    return b.posts.length - a.posts.length;
+  });
+
   return cb(null, res);
 };
 
