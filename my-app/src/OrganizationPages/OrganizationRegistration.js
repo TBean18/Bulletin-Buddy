@@ -117,7 +117,7 @@ function OrganizationReg() {
   };
 
   const inputStyle =
-    "shadow appearance-none border border-pink-500 rounded lg:w-80 w-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline";
+    "shadow appearance-none border hover:border-pink-500  focus:border-pink-500 rounded lg:w-80 w-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline";
 
   return (
     <div className="grid gird-rows-2">

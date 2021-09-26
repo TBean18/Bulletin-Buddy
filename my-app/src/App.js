@@ -14,6 +14,7 @@ function App() {
   return (
     <GlobalProvider>
       <div>
+        <PostCard/>
         <Router>
           <Switch>
             <Route path="/" exact component={() => <Landing />} />
