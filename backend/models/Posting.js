@@ -35,7 +35,7 @@ const PostingSchema = new Schema({
 });
 
 function imageLinkValidation(url) {
-  return /(jpeg|jpg|gif|png)/.test(url);
+  return /(jpeg|jpg|gif|png|image)/.test(url);
 }
 
 PostingSchema.methods.editPost = function (newPost, cb) {
