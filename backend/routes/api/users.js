@@ -6,6 +6,7 @@ const jwt = require("../../util/jwt");
 const { model, UserSchema } = require("../../models/User");
 const User = model;
 const hub = require("../../models/Hub");
+const Hub = hub.model;
 const posting = require("../../models/Posting");
 
 // Route: POST api/register
@@ -14,6 +15,7 @@ const posting = require("../../models/Posting");
 
 router.post("/register", (req, res) => {
   const body = req.body;
+  console.log(`BODY FOR USER REGISTRATION:\n\n ${JSON.stringify(body)}`);
   if (
     body.name == "" ||
     body.password == "" ||
@@ -25,14 +27,18 @@ router.post("/register", (req, res) => {
     return;
   }
 
-  // Create a new user
-  const newUser = new User({
+  let userData = {
     name: body.name,
     email: body.email,
-    phone_number: body.phone_number,
+    phone_number: body.phone,
     password_hash: body.password,
     school: body.school,
-  });
+    interests: body.interests,
+  };
+
+  // Create a new user
+
+  const newUser = new User(userData);
 
   // Save it to the database
   newUser
@@ -41,13 +47,36 @@ router.post("/register", (req, res) => {
       let token = jwt.createToken({
         user_ID: item._id,
       });
-
       if (token.error !== "") throw token.error;
 
-      res.json({
-        user: item,
-        token: token.accessToken,
-        error: "",
+      // Check to see if the newly registered user's school has a HUB
+      Hub.countDocuments({ school: userData.school }, (err, count) => {
+        // If so return the user
+        if (count > 0) {
+          res.json({
+            user: item,
+            token: token.accessToken,
+            error: "",
+          });
+          return;
+        } else {
+          // Else create a new hub and return the user
+          const newHub = new Hub({
+            school: userData.school,
+          });
+          newHub
+            .save()
+            .then((h) => {
+              res.json({
+                user: item,
+                token: token.accessToken,
+                error: "",
+              });
+            })
+            .catch((err) => {
+              throw err;
+            });
+        }
       });
     })
     .catch((err) => {
