@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
+import { useHistory } from "react-router";
 import { GlobalContext } from "../context/GlobalState";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const { storeJWT, logIn } = useContext(GlobalContext);
+  let history = useHistory();
 
   //   const [isFirstStep, setisFirstStep] = useState(true);
 
@@ -38,9 +40,12 @@ function Login() {
     } else {
       console.log("hooray!‍");
       if (!response.token) console.log("No Token");
-      else console.log(response.token);
-      storeJWT(response.token);
-      logIn(response.user, response.token);
+      else {
+        console.log(response.token);
+        storeJWT(response.token);
+        logIn(response.user, response.token);
+        history.push("/hub");
+      }
     }
   };
 
@@ -161,13 +166,12 @@ function Login() {
               {" "}
               Login{" "}
             </button>
-           
           </div>
           <Link to="./registration">
-              <text className=" duration-100 text-gray-400 transform hover:text-gray-700">
+            <text className=" duration-100 text-gray-400 transform hover:text-gray-700">
               Need an Account? Sign up!
-              </text>
-            </Link>
+            </text>
+          </Link>
         </div>
         <div id="step-2" className="hidden">
           <svg

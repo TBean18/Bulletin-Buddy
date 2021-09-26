@@ -6,10 +6,14 @@ export default function Modual(props) {
 
   const cancelButtonRef = useRef(null)
 
+  let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  options.timeZone = 'UTC';
+  options.timeZoneName = 'short';
+
   return (
     <Transition.Root show={props.isVisible} as={Fragment}>
       <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" initialFocus={cancelButtonRef} onClose={() => props.setIsVisible(!props.isVisible)}>
-        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -35,48 +39,31 @@ export default function Modual(props) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full">
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <div className="flex items-center">
+                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
                     <Dialog.Title as="h3" className="text-2xl text-center mt-8 leading-6 font-black text-gray-900">
                       {props.toDisplay.title}
                     </Dialog.Title>
-                    <div className="mt-2">
-                      <p className="text-sm text-gray-500">
+                    <div className="mt-2 flex flex-col items-center justify-center w-full">
                           <div id="flex flex-cols items-center justify-center">
-                            <button id="interest" className="rounded-xl h-5 p-4">
-                               
-                            </button>
+                            
                           <div> <text className="font-bold text-lg"> Date : </text>{props.toDisplay.date.toLocaleString("us-en")}</div>
                           <div> <text className="font-bold text-lg">Location : </text>{props.toDisplay.location}</div>
                           <br/>
                       <img className="h-auto w-full" src={props.toDisplay.image_address}/>
                       <br/>
                       <div> <text className="font-bold text-lg"> Description : </text>{props.toDisplay.description}</div>
-                          </div>
                       
-                      </p>
+                          </div>
+                          <button id="interest" className="mt-5 border-none rounded-xl h-5 p-4 bg-pink-500 text-white text-center items-center flex justify-center px-2 y-2">
+                               I'm Interested!
+                            </button>
+                     
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                <button
-                  type="button"
-                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
-                //   onClick={() => setOpen(false)}
-                >
-                  Deactivate
-                </button>
-                <button
-                  type="button"
-                  className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                //   onClick={() => setOpen(false)}
-                  ref={cancelButtonRef}
-                >
-                  Cancel
-                </button>
               </div>
             </div>
           </Transition.Child>

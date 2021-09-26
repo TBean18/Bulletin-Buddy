@@ -209,17 +209,7 @@ var sampleData = [
 	},
 ];
 
-for (var i = 0; i < sampleData.length; i++) {
-	for (var j = 0; j < sampleData[i].posts.length; j++) {
-		const styles = {
-			backgroundImage: "url('" + sampleData[i].posts[j].image_address + "')",
-			backgroundRepeat: "no-repeat",
-			backgroundSize: "cover",
-			backgroundPosition: "center",
-		};
-		sampleData[i].posts[j].styles = styles;
-	}
-}
+
 
 const HubPage = () => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -276,51 +266,50 @@ const HubPage = () => {
 				toDisplay={toDisplay}
 			/>
 
-			<div className="flex flex-row flex-nowrap items-center justify-start mx-12 my-8 gap-x-4 overflow-x-auto p-12">
-				{query.isSuccess &&
-					query.data.postsByInterests.map((data) => (
-						<div className="flex flex-col items-center gap-4 justify-center">
-							<div className="flex flex-row items-center justify-center gap-2 ">
-								{console.log(data)}
-								<svg
-									className=""
-									width="5"
-									height="25"
-									viewBox="0 0 25 25"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M0 12.3104V2.34375C0 1.04932 1.04932 0 2.34375 0H12.3104C12.932 3.25037e-06 13.5282 0.246935 13.9677 0.686475L24.3135 11.0323C25.2288 11.9476 25.2288 13.4315 24.3135 14.3468L14.3468 24.3135C13.4315 25.2288 11.9476 25.2288 11.0323 24.3135L0.686475 13.9677C0.246935 13.5282 3.25037e-06 12.932 0 12.3104H0ZM5.46875 3.125C4.17432 3.125 3.125 4.17432 3.125 5.46875C3.125 6.76318 4.17432 7.8125 5.46875 7.8125C6.76318 7.8125 7.8125 6.76318 7.8125 5.46875C7.8125 4.17432 6.76318 3.125 5.46875 3.125Z"
-										fill="#FCD34D"
-									/>
-								</svg>
-								<text className="font-bold text-yellow-300"> {data.tag} </text>
-							</div>
-							{data.posts.map((post) => (
-								<div
-									className="shadow-lg group container max-w-sm flex justify-center items-center  mx-auto  content-div w-52 h-autorounded-xl hover:opacity-30 rounded-xl"
-									style={post.styles}
-									onClick={() => {
-										console.log(post);
-										setDisplay(post);
-										setIsVisible(!isVisible);
-									}}
-								>
-									<div>
-										<div
-											id="image-hover"
-											className="w-full image-cover rounded-t-md"
-										>
-
-										</div>
-									</div>
-								</div>
-							))}
-						</div>
-					))}
-			</div>
-		</div>
-	);
+      <div className="flex flex-row flex-nowrap items-start justify-start mx-12 my-8 gap-x-4 overflow-x-auto p-12">
+        {query.isSuccess &&
+          query.data.postsByInterests.map((data) => (
+            <div className="flex flex-col items-center gap-2 justify-center">
+              <div className="flex flex-row items-center justify-center gap-2 ">
+                {console.log(data)}
+                <svg
+                  className=""
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 12.3104V2.34375C0 1.04932 1.04932 0 2.34375 0H12.3104C12.932 3.25037e-06 13.5282 0.246935 13.9677 0.686475L24.3135 11.0323C25.2288 11.9476 25.2288 13.4315 24.3135 14.3468L14.3468 24.3135C13.4315 25.2288 11.9476 25.2288 11.0323 24.3135L0.686475 13.9677C0.246935 13.5282 3.25037e-06 12.932 0 12.3104H0ZM5.46875 3.125C4.17432 3.125 3.125 4.17432 3.125 5.46875C3.125 6.76318 4.17432 7.8125 5.46875 7.8125C6.76318 7.8125 7.8125 6.76318 7.8125 5.46875C7.8125 4.17432 6.76318 3.125 5.46875 3.125Z"
+                    fill="#FCD34D"
+                  />
+                </svg>
+                <div className="font-bold text-yellow-300"> {data.tag} </div>
+              </div>
+              {data.posts.map((post) => (
+                <div
+                  className="shadow-lg group container max-w-sm flex justify-center items-center  mx-auto  content-div w-52 h-autorounded-xl hover:opacity-30 rounded-xl gap-0"
+                  style={post.styles}
+                  onClick={() => {
+                    console.log(post);
+                    setDisplay(post);
+                    setIsVisible(!isVisible);
+                  }}
+                >
+                  <img className="object-contain w-52 h-52" src={post.image_address}/>
+                  <div>
+                    <div
+                      id="image-hover"
+                      className="w-full image-cover rounded-t-md"
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+      </div>
+    </div>
+  );
 };
 export default HubPage;
