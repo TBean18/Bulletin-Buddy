@@ -208,13 +208,11 @@ var sampleData = [
   },
 ];
 
+
 for (var i = 0; i < sampleData.length; i++) {
   for (var j = 0; j < sampleData[i].posts.length; j++) {
     const styles = {
-      backgroundImage: "url('" + sampleData[i].posts[j].image_address + "')",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
+      
     };
     sampleData[i].posts[j].styles = styles;
   }
@@ -274,7 +272,7 @@ const HubPage = () => {
         toDisplay={toDisplay}
       />
 
-      <div className="flex flex-row flex-nowrap items-center justify-start mx-12 my-8 gap-x-4 overflow-x-auto p-12">
+      <div className="flex flex-row flex-nowrap items-start justify-start mx-12 my-8 gap-x-4 overflow-x-auto p-12">
         {query.isSuccess &&
           query.data.postsByInterests.map((data) => (
             <div className="flex flex-col items-center gap-4 justify-center">
@@ -293,7 +291,7 @@ const HubPage = () => {
                     fill="#FCD34D"
                   />
                 </svg>
-                <text className="font-bold text-yellow-300"> {data.tag} </text>
+                <div className="font-bold text-yellow-300"> {data.tag} </div>
               </div>
               {data.posts.map((post) => (
                 <div
@@ -305,6 +303,7 @@ const HubPage = () => {
                     setIsVisible(!isVisible);
                   }}
                 >
+                  <img className="object-contain w-52 h-52" src={post.image_address}/>
                   <div>
                     <div
                       id="image-hover"
