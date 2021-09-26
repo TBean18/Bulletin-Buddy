@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalState";
-import PostPreview from "./PostPreview";
 
 const PostCard = () => {
   // TODO :
@@ -111,9 +110,8 @@ const PostCard = () => {
   return (
     <div className="grid grid-cols-2 items-center justify-center h-screen w-screen m-10">
       <div className="grid grid-row-2 gap-4 m-10">
-        {/* <div className="bg-white rounded-lg w-full  h-96 p-6"></div>
-        <div className="bg-white rounded-lg w-full  h-96 p-6"></div> */}
-        <PostPreview />
+        <div className="bg-white rounded-lg w-full  h-96 p-6"></div>
+        <div className="bg-white rounded-lg w-full  h-96 p-6"></div>
       </div>
       <div className="bg-white rounded-lg w-5/6  h-5/6 p-6">
         <div className="flex flex-col items-center justify-center">
