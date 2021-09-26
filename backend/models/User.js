@@ -8,8 +8,7 @@ const UserSchema = new Schema({
     required: true,
   },
   interests: {
-    type: [Schema.Types.ObjectID],
-    ref: "organization",
+    type: [String],
     required: true,
     default: [],
   },
