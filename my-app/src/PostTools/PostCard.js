@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useHistory } from "react-router";
 import { GlobalContext } from "../context/GlobalState";
 
 const PostCard = () => {
@@ -9,6 +10,7 @@ const PostCard = () => {
   const [location, setLocation] = useState("");
   const [image_address, setImage_Address] = useState("");
   const [tags, setTags] = useState("");
+  let history = useHistory();
 
   // Tags
   const [chosenTags, setChosenTags] = useState([]);
@@ -55,6 +57,7 @@ const PostCard = () => {
       console.log(`OH NO! and error has been detected: \n ${body.error}`);
     } else {
       console.log(`Hooray!! : ${body} `);
+      history.push("/hub");
     }
   }
 
@@ -136,9 +139,11 @@ const PostCard = () => {
                       
                       </p>
                     </div>
-                  </div>
+                  </p>
                 </div>
               </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="bg-white rounded-lg w-5/6  h-5/6 p-6">
@@ -247,7 +252,9 @@ const PostCard = () => {
               />
             </div>
 
-            <div className="mb-4 gap-2 flex flex-wrap flex-row px-32 items-center justify-center">{getTags()}</div>
+            <div className="mb-4 gap-2 flex flex-wrap flex-row px-32 items-center justify-center">
+              {getTags()}
+            </div>
           </form>
           <button
             onClick={() => makePost()}
