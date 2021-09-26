@@ -20,12 +20,18 @@ function Landing() {
 						classmates.
 					</div>
 					<div className="flex flex-row gap-4">
-					<button className="rounded-xl h-auto text-yellow-900 bg-yellow-500 hover:bg-yellow-600 p-4 text-center text-2xl w-auto font-black">
+						<Link to="/login">
+						<button className="rounded-xl h-auto text-yellow-900 bg-yellow-500 hover:bg-yellow-600 p-4 text-center text-2xl w-auto font-black">
 							Log In
 						</button>
+							</Link>
+						<Link to="/organization/registration">
 						<button className="rounded-xl h-auto text-pink-900 bg-pink-500  hover:bg-pink-600 p-4 text-center text-2xl w-auto font-black">
 							Sign Up
 						</button>
+							</Link>
+				
+						
 					</div>
 				</div>
 			</div>
