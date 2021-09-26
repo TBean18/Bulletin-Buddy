@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalState";
-
+import { Link, withRouter } from "react-router-dom";
 const PostCard = () => {
   // TODO :
   const [title, setTitle] = useState("");
@@ -254,8 +254,19 @@ const PostCard = () => {
             className="ml-4 mt-4 rounded h-full py-2 px-4 text-white font-bold  bg-pink-600 hover:bg-pink-500  focus:outline-none focus:ring-2 focus:bg-pink-500  focus:ring-opacity-50"
           >
             {" "}
-            Register{" "}
+            Add a new post{" "}
           </button>
+
+                <Link to='/hub'>
+
+          <button
+            onClick={() => makePost()}
+            className="ml-4 mt-4 rounded h-full py-2 px-4 text-white font-bold  bg-pink-600 hover:bg-pink-500  focus:outline-none focus:ring-2 focus:bg-pink-500  focus:ring-opacity-50"
+          >
+            {" "}
+            Go to the Hub{" "}
+          </button>
+          </Link>
         </div>
       </div>
     </div>
