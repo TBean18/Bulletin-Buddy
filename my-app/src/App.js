@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import HubPage from "./HubPages/Hub.js";
 import Landing from "./Landing.js";
 import StudentReg from "./StudentPages/StudentRegistration.js";
 import OrganizationReg from "./OrganizationPages/OrganizationRegistration.js";
@@ -9,7 +10,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
 	return (
 		<div>
-			<Router>
+			<HubPage/>
+			{/* <Router>
 				<Switch>
 					<Route path="/" exact component={() => <Landing />} />
 					<Route path="/student/reg" exact component={() => <StudentReg />} />
@@ -24,7 +26,7 @@ function App() {
 						component={() => <Hub />}
 					/>
 				</Switch>
-			</Router>
+			</Router> */}
 		</div>
 	);
 }
