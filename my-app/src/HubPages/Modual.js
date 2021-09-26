@@ -3,13 +3,12 @@ import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
 export default function Modual(props) {
-  const [open, setOpen] = useState(true)
 
   const cancelButtonRef = useRef(null)
 
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" initialFocus={cancelButtonRef} onClose={setOpen}>
+    <Transition.Root show={props.isVisible} as={Fragment}>
+      <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" initialFocus={cancelButtonRef} onClose={() => props.setIsVisible(!props.isVisible)}>
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
             as={Fragment}
@@ -41,7 +40,7 @@ export default function Modual(props) {
                 <div className="sm:flex sm:items-start">
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <Dialog.Title as="h3" className="text-2xl text-center mt-8 leading-6 font-black text-gray-900">
-                      {props.title}
+                      {props.toDisplay.title}
                     </Dialog.Title>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
@@ -49,12 +48,12 @@ export default function Modual(props) {
                             <button id="interest" className="rounded-xl h-5 p-4">
                                
                             </button>
-                          <div> <text className="font-bold text-lg"> Date : </text>{props.date.toLocaleString("us-en")}</div>
-                          <div> <text className="font-bold text-lg">Location : </text>{props.location}</div>
+                          <div> <text className="font-bold text-lg"> Date : </text>{props.toDisplay.date.toLocaleString("us-en")}</div>
+                          <div> <text className="font-bold text-lg">Location : </text>{props.toDisplay.location}</div>
                           <br/>
-                      <img className="h-auto w-full" src={props.image}/>
+                      <img className="h-auto w-full" src={props.toDisplay.image_address}/>
                       <br/>
-                      <div> <text className="font-bold text-lg"> Description : </text>{props.description}</div>
+                      <div> <text className="font-bold text-lg"> Description : </text>{props.toDisplay.description}</div>
                           </div>
                       
                       </p>
@@ -66,14 +65,14 @@ export default function Modual(props) {
                 <button
                   type="button"
                   className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
-                  onClick={() => setOpen(false)}
+                //   onClick={() => setOpen(false)}
                 >
                   Deactivate
                 </button>
                 <button
                   type="button"
                   className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                  onClick={() => setOpen(false)}
+                //   onClick={() => setOpen(false)}
                   ref={cancelButtonRef}
                 >
                   Cancel

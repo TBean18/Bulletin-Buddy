@@ -5,7 +5,7 @@ import { GlobalContext } from "../context/GlobalState";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
-  const { storeJWT } = useContext(GlobalContext);
+  const { storeJWT, logIn } = useContext(GlobalContext);
 
   //   const [isFirstStep, setisFirstStep] = useState(true);
 
@@ -37,7 +37,10 @@ function Login() {
       console.log(`Something went wrong: ${response.error}`);
     } else {
       console.log("hooray!‍");
+      if (!response.token) console.log("No Token");
+      else console.log(response.token);
       storeJWT(response.token);
+      logIn(response.user, response.token);
     }
   };
 

@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import PostCard from './PostTools/PostCard';
+import PostCard from "./PostTools/PostCard";
 import HubPage from "./HubPages/Hub.js";
 import Landing from "./Landing.js";
 import StudentReg from "./StudentPages/StudentRegistration.js";
