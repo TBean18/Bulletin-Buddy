@@ -140,7 +140,7 @@ function Login() {
           {/* <div className="flex align-baseline items-center justify-center mb-8 flex-wrap"></div> */}
           <div className="w-auto">
             <input
-              className="bg-gray-200 mt-4 text-center appearance-none border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-fuchsia-600"
+              className="bg-gray-200 mt-4 appearance-none border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-fuchsia-600 text-left"
               type="email"
               defaultValue=""
               placeholder="Email"
@@ -150,7 +150,7 @@ function Login() {
           </div>
           <div className="w-auto">
             <input
-              className="bg-gray-200 mt-4 text-center appearance-none border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-fuchsia-600"
+              className="bg-gray-200 mt-4 text-left appearance-none border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-fuchsia-600"
               type="text"
               defaultValue=""
               placeholder="Password"

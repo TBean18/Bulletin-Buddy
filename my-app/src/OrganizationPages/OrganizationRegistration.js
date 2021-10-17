@@ -69,9 +69,9 @@ function OrganizationReg() {
     ];
     return tags.map((tag, index) => {
       let selectedOn =
-        "text-xs rounded-lg bg-red-100 border-pink-500 border hover:bg-red-50 px-4 py-1 text-dark-blueGray";
+        "text-sm rounded-lg bg-red-100 border-pink-500 border hover:bg-red-50 px-4 py-1 text-dark-blueGray";
       let selectedOff =
-        "text-xs rounded-lg bg-gray-100 border-gray-300 border hover:bg-red-50 px-4 py-1 text-dark-blueGray";
+        "text-sm rounded-lg bg-gray-100 border-gray-300 border hover:bg-red-50 px-4 py-1 text-dark-blueGray";
 
       return (
         <text
@@ -116,6 +116,7 @@ function OrganizationReg() {
     // TODO Reroute to registration Page
   };
 
+  const labelStyle = "block text-gray-700 text-lg text-center font-bold mb-2";
   const inputStyle =
     "shadow appearance-none border hover:border-pink-500  focus:border-pink-500 rounded lg:w-80 w-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline";
 
@@ -205,7 +206,7 @@ function OrganizationReg() {
           <form>
             <div className="mb-8">
               <label
-                className="block text-gray-700  text-sm font-bold mb-2"
+                className={labelStyle}
                 for="username"
               >
                 Username
@@ -222,7 +223,7 @@ function OrganizationReg() {
             </div>
             <div className="mb-8">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className={labelStyle}
                 for="password"
               >
                 Password
@@ -240,7 +241,7 @@ function OrganizationReg() {
 
             <div className="mb-8">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className={labelStyle}
                 for="phone"
               >
                 Phone
@@ -257,7 +258,7 @@ function OrganizationReg() {
             </div>
             <div className="mb-8">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+               className={labelStyle}
                 for="email"
               >
                 Email
@@ -274,7 +275,7 @@ function OrganizationReg() {
             </div>
             <div className="mb-8">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className={labelStyle}
                 for="school"
               >
                 School Name
@@ -292,12 +293,12 @@ function OrganizationReg() {
 
             <div className="mb-8">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className={labelStyle}
                 for="password"
               >
                 Select some tags that relate to your organization
               </label>
-              <div className="flex flex-auto flex-wrap gap-4 lg:w-96 w-auto  items-center justify-center">
+              <div className="mt-4 flex flex-auto flex-wrap gap-4 w-full items-center justify-center">
                 {getTags()}
                 {/* {registerInfo.interests.map((tag, index) => {
 									return tag;
